@@ -1,0 +1,97 @@
+---
+output: slidy_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+\
+```{r, fig.align='center',out.width="600px"}
+library(knitr)
+include_graphics("poke.png")
+
+```
+
+<center>
+<h3> Trabajo final  para semillero DSRP 2022-2 por Kharen Benavides </h3>
+</center>
+\
+
+## Que es Pokemon?
+
+Es una franquicia de medios que originalmente comenzó como un videojuego, pero debido a su popularidad ha logrado expandirse a otros medios de entretenimiento como series de televisión, películas, juegos de cartas, ropa, entre otros, convirtiéndose en una marca que es reconocida en el mercado mundial.
+
+Pókemon, el anime, por su nombre original Pocket monsters es un anime creado por Satoshi Tajiri, Junichi Masuda y Ken Sugimori basado de los videojuegos de pokemón. Narra la vida de un muchacho, Ash Ketchum, un adolescente proveniente del Pueblo Paleta, que desea cumplir su sueño: ser un maestro pokemon.
+
+Este anime fue emitido por primera vez el 1 de abril de 1997. La primera temporada cuenta con 276 episodios presentando personajes como Brock, Misty y el equipo Rocket
+
+## Por que usar Data Pokemon?
+
+Al ser tan popular cuenta con informacion de conocimiento publico sobre las caracteristicas de cada pokemon, ademas de presentar una gran variabilidad en los [datos](https://www.wikidex.net/wiki/Lista_de_Pok%C3%A9mon_con_sus_caracter%C3%ADsticas_base) que permite hacer diversos estudios, en este caso la base de datos se obtuvo del Github de [Angel Rene Segura](https://github.com/Alejandro-FB/Curso-Ciencia-Datos), y cuenta con  800 filas,representando los diferentes pokemones que existen con sus nombres y números de [Pokédex](https://www.pokemon.com/el/pokedex/), cabe recalcar que la lista llega hasta la temporada número 6. Cada uno de estos viene acompañado de 13 columnas, que representan las diferentes características de cada uno:
+
+1. **Number:** *Número del pokemon en la pokedex*
+2. **Name:** *Nombre del pokemon*
+3. **Type 1:** *Tipo 1 de pokemon*
+4. **Type 2:** *Tipo 2 de pokemon*
+5. **Total:**  *Total de las estadísticas base.(Mayor total, mejor pokemon)* 
+6. **HP:** *Puntos de salud Los puntos de salud (Health Points)*
+7. **Attack:** *Ataque*
+8. **Defense:** *Defensa*
+9. **Sp. Atk:** *Fuerza de ataque especial*
+10. **Sp. Def:** *Fuerza de defensa espacial*
+11. **Speed:** *Velocidad*
+12. **Generation:** *Generacion*
+13. **Legendary:** *Es legendario o no*
+
+
+
+
+## Analisis de Data
+
+Datos
+```{r}
+library(readr)
+pokemon<-read.csv("Pokemon.csv")
+head(pokemon)
+```
+
+Resumen de los datos
+
+```{r}
+summary(pokemon)
+```
+
+## Tipo de pokemon
+
+```{r}
+tipo <- pokemon$Type.1
+table(tipo)
+```
+
+```{r}
+factor1<-factor(pokemon$Type.1)
+plot(factor1, col = "skyblue")
+
+```
+
+Con ayuda de la tabla de frecuencia absoluta y la grafica de los tipos, se puede evidenviar que hasta la 6ta temporada el pokemon predominante es tipo agua
+
+## Gracias por su atención
+
+\
+
+```{r, fig.align='center',out.width="200px"}
+library(knitr)
+include_graphics("pokeyo.jpg")
+
+```
+
+\
+
+<!---
+Creditos:
+1. https://estadistica-dma.ulpgc.es/estadFCM/html/Practica5-Desarrollo.html
+
+-->
+
